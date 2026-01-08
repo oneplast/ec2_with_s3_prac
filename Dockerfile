@@ -9,7 +9,7 @@ RUN gradle dependencies --no-daemon
 
 COPY src src
 
-RUN gradle build --no-daemon -x test
+RUN gradle build --no-daemon
 
 FROM ghcr.io/graalvm/jdk-community:23
 

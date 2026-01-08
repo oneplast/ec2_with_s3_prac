@@ -2,11 +2,10 @@ package io.river.ec2_s3_deploy_prac
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
-import software.amazon.awssdk.services.s3.S3Client
 
 @RestController
-class HelloController(
-    private val s3Client: S3Client
+class HomeController(
+    private val s3Service: S3Service
 ) {
 
     @GetMapping("/")
@@ -16,9 +15,7 @@ class HelloController(
 
     @GetMapping("/buckets")
     fun buckets(): List<String> {
-        return s3Client
-            .listBuckets()
-            .buckets()
-            .map { it.name() }
+
+        return s3Service.getBucketNames()
     }
 }
