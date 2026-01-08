@@ -1,3 +1,7 @@
 spring:
   application:
     name: ec2_s3_deploy_prac
+
+  profiles:
+    active: dev
+    include: secret
